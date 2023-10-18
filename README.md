@@ -6,8 +6,6 @@ The way I designed this program was first by using Java's built in libraries for
 
 For decrypting, I designed two methods. One for taking in two Shard objects and one that compiled with two Strings. The string version is what reading from the text file would do first. After parsing input, the String version would call the Shard version. Once the program builds two shards, it would calculate the slope from the two points. This slope will match the random coefficent generated earlier. Then, the intercept would be determined by subtracting one points value from (input * slope). This intercept could then be decoded into the secret word.
 
-The biggest problem with my first draft of this program is that it shards the actual word, not the private key. After a long flight dedicated to updating this program, I had succesfully sharded and re created the private key from text. The problem was getting the Cipher text from a byte array, to a text file and back to a byte array. Something is fundamentlly changed about the array when it is converted to text, so the byte array recreated from the text would not be able to decode using Java's Cipher class. I did commit the first draft of the program on Friday so that should still be visable.
-
 Here is a quick example of how the byte array storage fails
     byte[] hawaii = "hawaii".getBytes(StandardCharsets.UTF_8);
     String encoded = Base64.getEncoder().encodeToString(hawaii);
